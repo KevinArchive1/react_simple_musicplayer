@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import '../componet_css/Search.css'
 
 
 const SpotifySearch = ({ onResults }) => {
@@ -66,7 +67,7 @@ const SpotifySearch = ({ onResults }) => {
   }
 
   return (
-    <div>
+    <div className='Search_holder'>
       <input
         type="text"
         placeholder="balls"
