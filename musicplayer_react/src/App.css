@@ -1,3 +1,19 @@
+
+
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow-x:  hidden;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.holder1 {
+  display: flex;
+  background-color: aquamarine;
+  height: 90%;
 }

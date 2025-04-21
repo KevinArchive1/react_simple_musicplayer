@@ -1,0 +1,26 @@
+.Track-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: auto;
+    width: auto;
+    padding: 10px;
+}
+
+.Current_track {
+    height: auto;
+    background-color: antiquewhite;
+    width: 30%;
+}
+
+.Player {
+    background-color: antiquewhite;
+    width: 30%;
+}
+
+.Volume {
+    display: flex;
+    background-color: aliceblue;
+    width: 30%;
+}

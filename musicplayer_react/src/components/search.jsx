@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-const SpotifySearch = () => {
+
+const SpotifySearch = ({ onResults }) => {
   const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
   const clientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 
   const [accessToken, setAccessToken] = useState('');
   const [query, setQuery] = useState('');
-  const [tracks, setTracks] = useState([]);
 
   // Fetch access token when component mounts
   useEffect(() => {
@@ -28,7 +29,7 @@ const SpotifySearch = () => {
 
   // Search function
   const searchMusic = async () => {
-    if (!query) return;
+    if (!query.trim()) return;
 
     const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track`, {
       headers: {
@@ -36,36 +37,46 @@ const SpotifySearch = () => {
       }
     });
     const data = await response.json();
-    setTracks(data.tracks.items);
+    onResults(data.tracks.items);
   };
+
+  const {
+    transcript,
+    listening,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition();
+
+  useEffect(() => {
+    setQuery(transcript);
+  }, [transcript])
+
+  useEffect(() => {
+    if(query.trim() === '') return;
+
+    const delayDebounce = setTimeout(() => {
+      searchMusic();
+    }, 1000);
+
+    return () => clearTimeout(delayDebounce); 
+  }, [query]);
+
+
+  if (!browserSupportsSpeechRecognition) {
+    return <span>Browser doesn't support speech recognition.</span>;
+  }
 
   return (
     <div>
-      <h1>Search for Music</h1>
       <input
         type="text"
         placeholder="balls"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button onClick={searchMusic}>Search</button>
+      <button onClick={SpeechRecognition.startListening}>
+      {listening ? 'Listening...' : 'Start Voice Search'}
+      </button>
 
-      <div id="results" >
-        {tracks.map((track) => (
-          <div key={track.id} className="track">
-            <strong>{track.name}</strong> by {track.artists.map(artist => artist.name).join(', ')}
-            <br />
-            <iframe
-              src={`https://open.spotify.com/embed/track/${track.id}`}
-              allow="encrypted-media"
-              title={track.name}
-              width="300"
-              height="300"
-              frameBorder="0"
-            ></iframe>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
