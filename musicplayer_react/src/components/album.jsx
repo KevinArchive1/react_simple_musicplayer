@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import "../componet_css/album.css"
+import './album.css';
 
 const myFavorites = [
   'Rubyeye, C!naH',
   'EPIC: The Musical',
   'Steven Universe, Vol. 1',
+  'Ado',
+  'YOASOBI',
   'BL8M',
   'KANA-BOON'
 ];

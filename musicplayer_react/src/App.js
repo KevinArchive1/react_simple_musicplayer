@@ -1,4 +1,5 @@
 import SpotifySearch from './components/search';
+import SpotifyRandomAlbum from './components/album';
 import './App.css';
 import Sidebar from './components/Sidebar';
 import PlayerBar from './components/PlayerBar';
