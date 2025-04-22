@@ -9,18 +9,20 @@
 }
 
 .Current_track {
-    height: auto;
+    font-size: 10px;
     background-color: red;
-    width: 30%;
+    width: 20%;
 }
 
 .Player {
     background-color: antiquewhite;
-    width: 30%;
+    width: 50%;
 }
 
 .Volume {
     display: flex;
+    align-items: center;
+    font-size: 10px;
     background-color: aliceblue;
-    width: 30%;
+    width: 20%;
 }

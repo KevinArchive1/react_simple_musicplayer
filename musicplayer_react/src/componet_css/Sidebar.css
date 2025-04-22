@@ -3,7 +3,7 @@
     flex-direction: column;
     background-color: gray;
     width: 16rem;
-    height: 100%;
+    height: auto;
     justify-content: space-between;
     padding: 1rem;
 }

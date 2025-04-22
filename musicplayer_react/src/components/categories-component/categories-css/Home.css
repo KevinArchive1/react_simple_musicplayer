@@ -1,0 +1,34 @@
+.Home_holder {
+    background-color: blue;
+    width: 100%;
+    height: 95%;
+    overflow-x: hidden;
+    margin: 10px;
+}
+
+.Label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: bisque;
+}
+
+.Top_Artist {
+    margin: 10px;
+    background-color: red;
+}
+
+.Top_Albums {
+    margin: 10px;
+    background-color: red
+}
+
+.Trending {
+    margin: 10px;
+    background-color: red
+}
+
+.Holder {
+    width: auto;
+    height: 15rem;
+}

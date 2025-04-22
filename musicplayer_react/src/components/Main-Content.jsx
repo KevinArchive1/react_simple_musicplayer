@@ -1,9 +1,9 @@
 import Home from "./categories-component/Home";
-import Genre from "./categories-component/Genre"
 import Favorites from "./categories-component/Favorites";
 import Artists from "./categories-component/Artists";
 import Albums from "./categories-component/Albums";
 import SearchResults from "./SearchResult";
+import "../componet_css/Main-Content.css"
 
 
 
@@ -12,8 +12,6 @@ const MainContent = ({activePage, searchResults}) => {
         switch (activePage) {
             case "home":
                 return <Home />
-            case "genre":
-                return <Genre />
             case "favorites":
                 return <Favorites />
             case "artist":
@@ -32,7 +30,7 @@ const MainContent = ({activePage, searchResults}) => {
     };
 
     return(
-        <div>
+        <div className="MainContent">
             {renderContent()}
         </div>
     )
