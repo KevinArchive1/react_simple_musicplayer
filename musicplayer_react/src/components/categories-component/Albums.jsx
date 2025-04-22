@@ -1,10 +1,13 @@
+import SpotifyPreferredAlbums from '../album';
+import '../categories_css/albums.css'
 
 const  Albums = () => {
     return(
         <>
-        <h1>
-            Albums
-        </h1>
+            <div className='container'>
+                <h1>Albums</h1>
+                <SpotifyPreferredAlbums />
+            </div>
         </>
     )
 }
