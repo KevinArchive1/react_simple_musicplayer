@@ -7,10 +7,9 @@ const Sidebar = ({setActivePage}) => {
                 <h1>Tech Tunes</h1>
                 <nav>
                     <div onClick={() => setActivePage('home')}>🏠 Home</div>
-                    <div onClick={() => setActivePage('genre')}>🎧 Genre</div>
                     <div onClick={() => setActivePage('artist')}>🎤 Artists</div>
                     <div onClick={() => setActivePage('albums')}>💿 Albums</div>
-                    <div onClick={() => setActivePage('favorites')}>❤️ Favorites</div>
+                    <div onClick={() => setActivePage('favorites')}>❤️ Playlists</div>
                 </nav>
 
                 <div>
