@@ -8,7 +8,14 @@ const myFavorites = [
     'Ado',
     'YOASOBI',
     'BL8M',
-    'KANA-BOON'
+    'KANA-BOON',
+    'Laufey',
+    'Rex Orange County',
+    'NIKI',
+    'BINI',
+    'FLOW',
+    'Kanaria',
+    'LiSA'
 ];
 
 // function, pipili ng kanta randomly sa list array
@@ -69,7 +76,7 @@ useEffect(() => {
     if (!accessToken) return;
 
     const fetchAlbums = async () => {
-    const selected = getRandomItems(myFavorites, 6); // anim na kanta na available sa list array
+    const selected = getRandomItems(myFavorites, 14); // anim na kanta na available sa list array
     const fetched = [];
 
     for (let name of selected) {
