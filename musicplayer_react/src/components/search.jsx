@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import '../componet_css/Search.css'
+import MicOn from './img/mic-on.png';
+import MicOff from './img/mic-off.png';
 
 
 const SpotifySearch = ({ onResults }) => {
@@ -10,7 +12,6 @@ const SpotifySearch = ({ onResults }) => {
   const [accessToken, setAccessToken] = useState('');
   const [query, setQuery] = useState('');
 
-  // Fetch access token when component mounts
   useEffect(() => {
     const getAccessToken = async () => {
       const response = await fetch('https://accounts.spotify.com/api/token', {
@@ -52,14 +53,17 @@ const SpotifySearch = ({ onResults }) => {
   }, [transcript])
 
   useEffect(() => {
-    if(query.trim() === '') return;
-
+    if (query.trim() === '') {
+      onResults([]); 
+      return;
+    }
+  
     const delayDebounce = setTimeout(() => {
       searchMusic();
     }, 1000);
-
-    return () => clearTimeout(delayDebounce); 
-  }, [query]);
+  
+    return () => clearTimeout(delayDebounce);
+  }, [query]);  
 
 
   if (!browserSupportsSpeechRecognition) {
@@ -70,12 +74,17 @@ const SpotifySearch = ({ onResults }) => {
     <div className='Search_holder'>
       <input
         type="text"
-        placeholder="balls"
+        placeholder="Search Music"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        className='input'
       />
-      <button onClick={SpeechRecognition.startListening}>
-      {listening ? 'Listening...' : 'Start Voice Search'}
+      <button onClick={SpeechRecognition.startListening} className="mic-button">
+        <img
+          src={listening ? MicOn : MicOff}
+          alt={listening ? 'Listening' : 'Start Voice Search'}
+          className="mic-icon"
+        />
       </button>
 
     </div>
