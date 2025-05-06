@@ -1,28 +1,100 @@
-.Track-bar {
+.player-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #f6f5f8;
+    z-index: 1;
+  }
+  
+  .player-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 20px;
+  }
+  
+  .top-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
-    height: auto;
-    width: auto;
-    padding: 10px;
-}
-
-.Current_track {
-    font-size: 10px;
-    background-color: red;
-    width: 20%;
-}
-
-.Player {
-    background-color: antiquewhite;
-    width: 50%;
-}
-
-.Volume {
+  }
+  
+  /* Left: Album and Song Info */
+  .unknown-section {
+    flex: 1;
     display: flex;
     align-items: center;
-    font-size: 10px;
-    background-color: aliceblue;
-    width: 20%;
-}
+    gap: 10px;
+  }
+  
+  .album-art {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    background: #ccc; /* fallback if image is missing */
+  }
+  
+  .song-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .song-title {
+    font-weight: bold;
+    font-size: 0.95rem;
+  }
+  
+  .artist-name {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  /* Center: Controls and Progress */
+  .controls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 8px;
+  }
+  
+  .icon-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .progress-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .progress-bar {
+    flex: 1;
+    height: 4px;
+    border-radius: 5px;
+    background: #ddd;
+    accent-color: #d74c6f;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .time-text {
+    font-size: 0.9rem;
+  }
+  
+  /* Right: Volume */
+  .volume-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    flex: 1;
+  }
+  
+  .volume-slider {
+    width: 100px;
+  }
+  

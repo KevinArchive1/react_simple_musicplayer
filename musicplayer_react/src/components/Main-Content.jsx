@@ -1,9 +1,10 @@
 import Home from "./categories-component/Home";
 import Favorites from "./categories-component/Favorites";
-import Artists from "./categories-component/Artists";
+import Artist from "./categories-component/Artists";
 import Albums from "./categories-component/Albums";
 import SearchResults from "./SearchResult";
 import "../componet_css/Main-Content.css"
+
 
 
 
@@ -15,7 +16,7 @@ const MainContent = ({activePage, searchResults}) => {
             case "favorites":
                 return <Favorites />
             case "artist":
-                return <Artists />
+                return <Artist />
             case "albums":
                 return <Albums />
             case "search":
